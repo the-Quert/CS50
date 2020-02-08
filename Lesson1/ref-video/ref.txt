@@ -1,0 +1,5 @@
+https://www.youtube.com/embed/q6K8KMqt8wQ?rel=0&amp;showinfo=0          Data Types
+https://www.youtube.com/embed/7apBtlEkJzk?rel=0&amp;showinfo=0          Operators
+https://www.youtube.com/embed/FqUeHzvci10?rel=0&amp;showinfo=0          Conditional Statements
+https://www.youtube.com/embed/QOvo-xFL9II?rel=0&amp;showinfo=0          Loops
+https://www.youtube.com/embed/lnYKOnz9ln8?rel=0&amp;showinfo=0          Command Line
