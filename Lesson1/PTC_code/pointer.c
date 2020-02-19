@@ -92,7 +92,18 @@
 	return 0;
 }
 */
-int main(void)
+/*int main(void)
+{
+	int count = 9;
+	int *countAddr;
+	countAddr = &count;
+	*countAddr = 10;
+	int result = *countAddr;
+	printf("Result = %d\n", count);
+
+	return 0;
+}*/
+/*int main(void)
 {
 	int a, b, temp;
 	int *p1, *p2; 
@@ -103,7 +114,7 @@ int main(void)
 	// After intial define, address is located without *
 	p1 = &a;	
 	p2 = &b;
-	// *p1 = *&a = a
+	// *p1 = *&a = *&*&*&*&a = a
 	if(*p1 < *p2){  // p1 <-> p2
 		temp = *p1; // temp = p1	p1 -> temp
 		*p1 = *p2;	// p1 = p2		p2 -> p1
@@ -113,9 +124,32 @@ int main(void)
 	printf("Value of *p2: %i\n", *p2);
 	printf("Value of p1: %p\n", p1);
 	printf("Value of p2: %p\n", p2);
+}*/
+/*
+void addone(int *n)
+{
+	*n = *n + 1;
 }
-
 int main(void)
 {
-
+	int a = 3;
+	addone(&a);
+	printf("%d\n", a);
+}*/
+void swap(int*, int*);
+int main(void)
+{
+	int a = 3, b = 5;
+	/*int temp = a;
+	a = b;
+	b = temp;*/
+	swap(&a, &b);
+	printf("a: %d\n", a);
+	printf("b: %d\n", b);
+}
+void swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
