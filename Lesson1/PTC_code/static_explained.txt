@@ -1,0 +1,78 @@
+1. Hide (for "function" and "variables") in different files
+{
+	When compiling multiple files in the same time, all variables without "static" is global and visible.
+
+	Ex:
+
+	a.c>
+	char a = 'A';
+	void msg()
+	{
+	printf("Hello\n");
+	}
+
+	main.c>
+	int main(void)
+	{
+		extern char a;
+		printf("%c", a);
+		(void) msg();
+		return 0;
+	}
+
+	Now, "main" could call out "a" in "a.c".
+	Therefore, all global variables and function without "static" are visible.
+	With "static", "main.c" could not see "a".
+	With this feature, we can name function or variables with the same name between diffferent files.
+}
+
+2. To keep content of variables alive as long as it can. (for "variables")
+{
+	The variables which stores in static data area would finish initializing when the program starts in the beginning, and it's its one-time initializing.
+	Two variables would store in static data area: "global variables" and "static variables".
+
+	Ex:
+
+	#include <stdio.h>
+
+	int fun(void)
+	{
+	static int count = 10; // Never used.
+	return count--;
+	}
+	
+	int count = 1;
+
+	int main(void)
+	{
+	printf("global\t\tlocal static\n");
+	for(; count <= 10; ++count)
+	{
+		printf("%d\t\t%d\n", count, fun());
+	}
+	}
+	"count" in fun() could be loaded and update in multiple times because of "static" to extend its life.
+}
+
+3. Default intialized as "0"
+{
+	"Global variables" also featured, cause "global variables" is store in "static", too.
+	In "static", all bits stored in memory are 0x00. Sometimes that would be easy for programmer...
+	For example, a sparse matrix, we should set element to 0 in steps, and set those which are not 0 to its value.
+	But with "static", we could set to "static" instead of set 0 in the beginning, cause "static" is 0 in default.
+
+	Ex:
+	# include <stdio.h>
+
+	int a;
+
+	int main(void)
+	{
+		int i;
+		static char str[10];
+
+		printf("integer: %d; string: (begin)%s(end)", a, str);
+
+		return 0;
+	}
+}
