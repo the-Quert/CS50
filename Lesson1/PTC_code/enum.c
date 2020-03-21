@@ -56,7 +56,7 @@ for (int i = 0; i < n; i++)
 
 	else
 	{
-		if(building[i].y < max_h) // END -- smaller than max_h -> max of remains
+		if(building[i].y < max_h) // END -- smaller than max_h -> find max from remains
 		{
 			for(int j = 0; j < i; j++)
 			{
